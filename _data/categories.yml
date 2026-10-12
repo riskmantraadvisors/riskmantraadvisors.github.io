@@ -1,0 +1,13 @@
+# Knowledge categories. Add a line to create a new category; articles reference it by `slug`.
+- slug: treasury
+  name: Treasury
+- slug: risk-management
+  name: Risk Management
+- slug: alm
+  name: ALM & Liquidity
+- slug: banking
+  name: Banking
+- slug: regulatory
+  name: Regulatory Developments
+- slug: market-insights
+  name: Market Insights

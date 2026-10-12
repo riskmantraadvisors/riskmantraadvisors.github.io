@@ -1,0 +1,22 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="top">
+  <div class="container">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="RiskMantra Advisors — home">
+      <img src="{{ '/assets/img/logo-mark.png' | relative_url }}" alt="" width="74" height="34">
+      <span class="brand-text"><span class="brand-name">RiskMantra</span><span class="brand-sub">Advisors</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Open menu">
+      <span class="icon-open">{% include icon.html name="menu" %}</span><span class="icon-close">{% include icon.html name="close" %}</span>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <ul>
+        {%- for item in site.data.navigation %}
+        {%- assign active = false -%}
+        {%- if page.url == item.url or page.url contains item.url -%}{%- assign active = true -%}{%- endif -%}
+        <li><a class="nav-link" href="{{ item.url | relative_url }}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+        {%- endfor %}
+      </ul>
+      <div class="header-cta"><a class="btn btn--navy btn--sm" href="{{ '/contact/' | relative_url }}">Request a consultation</a></div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,13 @@
+# Main menu. Edit labels/order here; every page picks it up automatically.
+- title: About
+  url: /about/
+- title: Services
+  url: /services/
+- title: Who We Serve
+  url: /sectors/
+- title: Our People
+  url: /people/
+- title: Knowledge
+  url: /knowledge/
+- title: Initiatives
+  url: /initiatives/

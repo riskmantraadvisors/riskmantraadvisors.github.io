@@ -1,0 +1,135 @@
+# Service lines shown on /services/ and the welcome page.
+# To add a service: copy a block, give it a unique id, and edit the text.
+items:
+  - id: market-risk
+    title: Market Risk Advisory
+    icon: chart
+    summary: Governance, quantification and system-enabled controls for trading and investment books.
+    groups:
+      - name: Governance & Framework Design
+        items:
+          - Risk policies, Risk Appetite Statements and Risk Management Framework
+          - Risk assessment tools, techniques and thresholds
+          - Terms of Reference for MRMC and Board Risk Committees
+          - SOP gap analysis between documented procedures and actual practice
+      - name: Monitoring, Reporting & Capital
+        items:
+          - Daily P&L and risk monitoring dashboards
+          - VaR / Expected Shortfall, sensitivities (PV01, Greeks) and back-testing
+          - Capital charge computation, scenario analysis and stress testing
+      - name: Regulatory & Thematic Reviews
+        items:
+          - Mock AFI health checks simulating RBI inspections
+          - Monthly ALCO / MRMC advisory and regulatory submissions
+          - Model Risk Management framework and model validation
+  - id: alm-liquidity
+    title: ALM & Liquidity Risk
+    icon: drop
+    summary: Balance-sheet intelligence that reduces regulatory cost and strengthens funding stability.
+    groups:
+      - name: Behavioural Intelligence & Balance-Sheet Modelling
+        items:
+          - Statistical models for non-maturity deposits (Savings / Current)
+          - Prepayment and premature-withdrawal modelling across rate cycles
+          - Dynamic IRRBB — NII and EVE under parallel and non-parallel shocks
+      - name: Regulatory Compliance & Prudential Resilience
+        items:
+          - LCR / NSFR optimisation and improved HQLA yield
+          - ALCO governance and trigger-based escalation design
+          - Funds Transfer Pricing (FTP) frameworks
+      - name: Stress Testing & Contingency Funding
+        items:
+          - Bespoke "what-if" scenarios — rating downgrade, digital deposit flight, repo spike
+          - Actionable Contingency Funding Plans and intraday liquidity monitoring
+          - Integrated ALM–Treasury dashboards as a single source of truth
+  - id: credit-risk
+    title: Credit Risk Analytics
+    icon: layers
+    summary: Data-driven underwriting and predictive asset-quality management for banks and NBFCs.
+    groups:
+      - name: Advanced Underwriting Models
+        items:
+          - Credit rating models for corporate exposures
+          - Application, Behavioural and Collections scorecards
+      - name: Early Warning & Asset Quality
+        items:
+          - Integrated Early Warning Signals (EWS) framework
+          - Delinquency analytics, roll-rates and predictive default modelling
+          - Expected Credit Loss (ECL) under Ind-AS per the latest RBI directions
+      - name: Risk-Adjusted Profitability
+        items:
+          - RAROC by product, business line and relationship team
+  - id: operational-risk
+    title: Operational Risk
+    icon: shield
+    summary: Control environments that hold up in practice — and under inspection.
+    groups:
+      - name: Governance & Framework Design
+        items:
+          - Policies for ORM, BCP and outsourcing; ORMC Terms of Reference
+          - Risk appetite and tolerance limits
+      - name: Risk Identification & Assessment
+        items:
+          - RCSA workshops and end-to-end process mapping
+          - New Product Approval risk frameworks
+      - name: Monitoring & Thematic Reviews
+        items:
+          - KRI framework with Red / Amber / Green thresholds
+          - Capital charge under BIA / TSA
+          - Fraud, cyber, IT, outsourcing and climate risk assessments
+          - Pre-RBI inspection readiness health checks
+  - id: model-risk
+    title: Model Risk & Valuations
+    icon: target
+    summary: Independent development and validation of risk and valuation models.
+    groups:
+      - name: Model Risk Management
+        items:
+          - Development, implementation and validation of credit, market, liquidity and operational risk models
+          - Model inventory, tiering and governance frameworks
+      - name: Valuations
+        items:
+          - Build and validate valuation models for treasury products
+          - Independent fair-value checks on FX and structured derivatives
+  - id: systems
+    title: Treasury & Risk Systems
+    icon: cpu
+    summary: Techno-functional advisory for system selection, configuration and data integration.
+    groups:
+      - name: Treasury System Configuration
+        items:
+          - Calypso, Murex & MLC, FM Converge, Misys (K+) & MLS, SAS
+          - Vendor negotiation, technology selection and UAT oversight
+      - name: Data & Advanced Modelling
+        items:
+          - Risk data warehouses and bespoke data repositories
+          - Behavioural models configured directly within systems
+          - Real-time Bloomberg and Reuters market-data integration
+  - id: corporate-treasury
+    title: Corporate Treasury & Hedging
+    icon: briefcase
+    summary: Senior treasury oversight for corporates — without the full-time headcount.
+    groups:
+      - name: Hedging Policy & Governance
+        items:
+          - Hedging policies aligned to balance sheet and risk appetite
+          - FX and interest-rate hedging strategies; preventing over-hedging
+          - Hedge effectiveness documentation, testing and accounting
+      - name: Fair Value Checks & Virtual Risk Office
+        items:
+          - Independent valuation of FX and structured derivatives
+          - Identify past overcharges and negotiate better terms with banks
+          - Retainer-based senior treasury and risk oversight
+  - id: training
+    title: Training & Capability Building
+    icon: book
+    summary: Practitioner-led programmes for boards, leadership and risk teams.
+    groups:
+      - name: Standard Suite
+        items:
+          - Core treasury — bond maths, FX and derivatives, market data and valuation
+          - Risk — SA-CCR, ECL, liquidity and operational risk
+          - Accounting & compliance — treasury product accounting, hedge effectiveness
+      - name: Customised Programmes
+        items:
+          - Needs assessment, curriculum design, in-person or online delivery, ongoing support

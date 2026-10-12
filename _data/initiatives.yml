@@ -1,0 +1,77 @@
+# RiskMantra initiatives beyond advisory.
+# Structure: platform → products. To add a product, append an entry under `products`.
+# To add an entire new platform, append a new top-level block. No design changes needed.
+# status: one of  live | pilot | in-development | coming-soon
+items:
+  - id: intelligence
+    name: RiskMantra Intelligence
+    kicker: RegTech
+    summary: >-
+      Regulatory and market intelligence tools that turn supervisory expectations and market data
+      into early, actionable signals for risk and compliance teams.
+    products:
+      - name: Regulatory Breach Early Warning System
+        short: RBEWS
+        status: in-development
+        summary: >-
+          Monitors regulatory thresholds and internal limits to flag potential breaches before they
+          occur — giving compliance and risk teams time to act rather than explain.
+      - name: ARIP
+        short: ARIP
+        status: in-development
+        summary: >-
+          A regulatory intelligence initiative that tracks, interprets and maps new circulars and
+          directions to the policies, processes and owners they affect.
+      - name: S.I.G.N.A.L. Market Signals Library
+        short: SIGNAL
+        status: coming-soon
+        summary: >-
+          A curated library of market and macro signals — rates, liquidity, FX and credit indicators —
+          structured for treasury, ALCO and risk-committee decision-making.
+  - id: learning
+    name: RiskMantra Learning
+    kicker: Capability
+    summary: >-
+      Practitioner-led learning for boards, senior leaders and risk professionals — built on the
+      situations our partners have actually managed.
+    products:
+      - name: Professional Training Programmes
+        status: live
+        summary: >-
+          Structured programmes in treasury, market risk, ALM, credit risk and accounting —
+          standard suite or fully customised to an institution's needs.
+        link: /services/#training
+      - name: RiskMantra Learning App
+        status: in-development
+        summary: >-
+          Bite-sized modules, case studies and assessments on mobile, so teams can build risk
+          capability continuously rather than once a year.
+      - name: Workshops & Knowledge Resources
+        status: live
+        summary: >-
+          Board workshops, leadership sessions and a growing library of articles and notes on the
+          Knowledge hub.
+        link: /knowledge/
+  - id: research
+    name: Research & Innovation
+    kicker: Labs
+    summary: >-
+      Research and technology initiatives that apply our risk expertise to new problems, new
+      sectors and new tooling.
+    products:
+      - name: Risk Model Validation Tool
+        status: in-development
+        summary: >-
+          A structured toolkit to standardise model validation — data checks, back-testing,
+          benchmarking and documentation — with a full audit trail.
+      - name: Semiconductor Risk & Resilience Intelligence
+        status: in-development
+        summary: >-
+          Research on supply-chain, geopolitical and financial risks across the semiconductor value
+          chain, and the resilience levers available to firms and financiers.
+      - name: Further research & technology initiatives
+        status: coming-soon
+        summary: >-
+          New tools and research streams are added here as they mature. Interested in collaborating?
+          Get in touch.
+        link: /contact/?topic=partnership

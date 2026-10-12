@@ -1,0 +1,27 @@
+- name: Banks & Small Finance Banks
+  icon: bank
+  items:
+    - SA-CCR, ICAAP, ILAAP and IRRBB
+    - Basel III compliance
+    - Treasury & risk system selection and implementation
+    - ECL for Ind-AS
+    - AD-1 set-up and regulatory health checks
+    - Enterprise risk frameworks, policies and Risk Appetite Statements
+- name: NBFCs & HFCs
+  icon: building
+  items:
+    - Treasury desk set-up, SOPs and dealing-room protocols
+    - Liquidity standards (LCR / NSFR) under Scale-Based Regulations
+    - ICAAP and Board-level risk dashboards
+    - Credit scoring, model validation and EWS
+    - ECL (Stage 1 / 2 / 3) and co-lending risk frameworks
+    - Funding strategy and debt-mix optimisation
+- name: Corporates & SMEs
+  icon: factory
+  items:
+    - Virtual Treasurer & Risk Office
+    - FX hedging policy and strategies
+    - Fair-value checks on derivatives
+    - Treasury policy design and review
+    - Hedge accounting and documentation
+    - Bank pricing and terms negotiation

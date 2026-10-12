@@ -1,0 +1,10 @@
+{%- assign p = include.person -%}
+<article class="person-card reveal">
+  <div class="person-photo"><img src="{{ p.photo | relative_url }}" alt="{{ p.name }}" loading="lazy" width="720" height="800"></div>
+  <div class="person-body">
+    <span class="person-lens">{{ p.lens }}</span>
+    <h3><a class="stretched" href="{{ p.url | relative_url }}">{{ p.name }}</a></h3>
+    <p class="person-title">{{ p.title }}</p>
+    <ul class="chips">{% for e in p.expertise limit: 4 %}<li class="chip">{{ e }}</li>{% endfor %}</ul>
+  </div>
+</article>

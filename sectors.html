@@ -1,0 +1,39 @@
+---
+layout: page
+title: Who We Serve
+permalink: /sectors/
+eyebrow: Clients
+heading: Tailored for every type of financial institution and corporate treasury.
+intro: We adapt our approach to an institution's size, regulatory regime and operating reality — and we also design bespoke solutions beyond the standard offerings below.
+description: RiskMantra serves banks and small finance banks, NBFCs and HFCs, and corporates and SMEs with risk, treasury and regulatory advisory.
+---
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      {% for s in site.data.sectors %}
+      <div class="card sector-card reveal">
+        <div class="card-icon">{% include icon.html name=s.icon %}</div>
+        <h3>{{ s.name }}</h3>
+        <ul>{% for i in s.items %}<li>{{ i }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section section--paper">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow">For corporates &amp; SMEs</span>
+        <h2>Senior treasury expertise, without full-time headcount.</h2>
+        <p class="lead">Our Virtual Treasurer &amp; Risk Office gives mid-sized corporates retainer-based oversight of FX and interest-rate exposure, hedging strategy and bank pricing.</p>
+        <a class="link-arrow" href="{{ '/services/#corporate-treasury' | relative_url }}">Corporate treasury &amp; hedging {% include icon.html name="arrow" %}</a>
+      </div>
+      <ul class="check-list reveal">
+        <li><strong>Reveal true pricing</strong>Independent valuation of FX and structured derivatives.</li>
+        <li><strong>Protect against overcharging</strong>Identify past overcharges and negotiate better terms with banks.</li>
+        <li><strong>Hedge with discipline</strong>Policies that prevent over-hedging and accidental speculation.</li>
+      </ul>
+    </div>
+  </div>
+</section>

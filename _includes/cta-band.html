@@ -1,0 +1,13 @@
+<section class="cta-band">
+  <div class="container">
+    <div>
+      <span class="eyebrow eyebrow--light">{{ include.eyebrow | default: "Partners in your growth" }}</span>
+      <h2>{{ include.title | default: "Let's discuss the risk questions on your Board's agenda." }}</h2>
+      <p>{{ include.text | default: "A confidential conversation with a partner — not a sales team. We'll tell you candidly where we can help." }}</p>
+    </div>
+    <div class="actions">
+      <a class="btn btn--gold" href="{{ '/contact/' | relative_url }}">Request a consultation {% include icon.html name="arrow" %}</a>
+      <a class="btn btn--ghost-light" href="https://wa.me/{{ site.contact.whatsapp }}" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</section>

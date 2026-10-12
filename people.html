@@ -1,0 +1,25 @@
+---
+layout: page
+title: Our People
+permalink: /people/
+eyebrow: Leadership
+heading: Front-to-back-to-Board coverage.
+intro: Three partners whose combined careers span the strategist's, the specialist's and the architect's view of risk — at public, private, foreign and small finance banks.
+description: Meet the RiskMantra partners — Alok Gupta, CA Arpit Sarawagi and Sushant Saurav — former CROs and Heads of Market, Liquidity and Treasury Risk.
+---
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      {% assign people = site.authors | sort: "order" %}
+      {% for p in people %}{% include person-card.html person=p %}{% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section section--paper">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Institutional experience</span><h2>Where our partners have led</h2></div>
+    <div class="logos-row reveal">
+      <span>State Bank of India</span><span>ICICI Bank</span><span>Kotak</span><span>IndusInd Bank</span><span>IDFC FIRST Bank</span><span>AU Small Finance Bank</span><span>Equitas Small Finance Bank</span><span>UBS</span><span>Barclays</span><span>DBS</span><span>Oracle</span><span>SunGard</span>
+    </div>
+  </div>
+</section>

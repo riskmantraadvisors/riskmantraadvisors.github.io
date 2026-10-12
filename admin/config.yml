@@ -1,0 +1,140 @@
+# Decap CMS configuration — https://decapcms.org/docs/configuration-options/
+# Setup steps (one-time) are in docs/ADMIN-GUIDE.md.
+backend:
+  name: github
+  repo: riskmantraadvisors/riskmantraadvisors.github.io
+  branch: main
+  # GitHub sign-in needs a small OAuth relay when the site is not hosted on Netlify.
+  # Deploy one (see docs/ADMIN-GUIDE.md) and put its URL here:
+  base_url: https://YOUR-OAUTH-RELAY.example.workers.dev
+  auth_endpoint: auth
+  commit_messages:
+    create: "Knowledge: publish {{collection}} “{{slug}}”"
+    update: "Knowledge: update {{collection}} “{{slug}}”"
+    delete: "Knowledge: delete {{collection}} “{{slug}}”"
+    uploadMedia: "Upload “{{path}}”"
+    deleteMedia: "Delete “{{path}}”"
+
+# Drafts → In review → Ready: nothing goes live until an editor publishes it.
+publish_mode: editorial_workflow
+
+site_url: https://riskmantraadvisors.com
+display_url: https://riskmantraadvisors.com
+logo_url: /assets/img/logo-mark.png
+media_folder: assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  - name: articles
+    label: Articles
+    label_singular: Article
+    description: Knowledge hub articles. Premium articles show everything above the "Read more" divider to everyone; the rest is reserved for members.
+    folder: _articles
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "knowledge/{{fields.slug}}/"
+    summary: "{{title}} — {{author}} ({{year}}-{{month}}-{{day}})"
+    sortable_fields: [date, title, author, category]
+    view_filters:
+      - { label: Premium, field: premium, pattern: true }
+      - { label: Featured, field: featured, pattern: true }
+    view_groups:
+      - { label: Category, field: category }
+      - { label: Author, field: author }
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: URL slug, name: slug, widget: string, hint: "Lower-case words separated by hyphens, e.g. irrbb-basics. Becomes /knowledge/<slug>/" }
+      - { label: Publish date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - label: Author
+        name: author
+        widget: relation
+        collection: authors
+        search_fields: [name]
+        value_field: slug
+        display_fields: [name]
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Treasury, value: treasury }
+          - { label: Risk Management, value: risk-management }
+          - { label: "ALM & Liquidity", value: alm }
+          - { label: Banking, value: banking }
+          - { label: Regulatory Developments, value: regulatory }
+          - { label: Market Insights, value: market-insights }
+      - { label: Tags, name: tags, widget: list, required: false, hint: "Comma-separated, e.g. IRRBB, Liquidity" }
+      - { label: Summary (shown on cards and in search results), name: summary, widget: text }
+      - { label: Featured on Knowledge page, name: featured, widget: boolean, default: false, required: false }
+      - { label: Premium (members only), name: premium, widget: boolean, default: false, required: false, hint: "Insert <!--more--> in the body: text above it is the free preview." }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: authors
+    label: People & Authors
+    label_singular: Person
+    description: Partner and author profiles. Used on the People page and as article bylines.
+    folder: _authors
+    create: true
+    delete: true
+    slug: "{{fields.slug}}"
+    fields:
+      - { label: Full name, name: name, widget: string }
+      - { label: URL slug, name: slug, widget: string, hint: "e.g. alok-gupta" }
+      - { label: Display order, name: order, widget: number, value_type: int, default: 10 }
+      - { label: Role, name: role, widget: string, default: Partner }
+      - { label: Lens / tagline, name: lens, widget: string, required: false }
+      - { label: Title / credentials, name: title, widget: string }
+      - { label: Photo, name: photo, widget: image }
+      - { label: Experience, name: experience, widget: string, required: false }
+      - { label: Expertise, name: expertise, widget: list, required: false }
+      - { label: Institutions, name: institutions, widget: list, required: false }
+      - { label: LinkedIn URL, name: linkedin, widget: string, required: false }
+      - { label: Short summary, name: summary, widget: text, required: false }
+      - { label: Biography, name: body, widget: markdown }
+
+  - name: settings
+    label: Site content
+    editor: { preview: false }
+    files:
+      - name: services
+        label: Services
+        file: _data/services.yml
+        fields:
+          - label: Services
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: ID (anchor), name: id, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Icon, name: icon, widget: select, options: [chart, drop, layers, shield, target, cpu, briefcase, book, bank, building, factory] }
+              - { label: Summary, name: summary, widget: text }
+              - label: Groups
+                name: groups
+                widget: list
+                fields:
+                  - { label: Group name, name: name, widget: string }
+                  - { label: Items, name: items, widget: list }
+      - name: initiatives
+        label: Initiatives & products
+        file: _data/initiatives.yml
+        fields:
+          - label: Platforms
+            name: items
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: ID (anchor), name: id, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Summary, name: summary, widget: text }
+              - label: Products
+                name: products
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Short name, name: short, widget: string, required: false }
+                  - { label: Status, name: status, widget: select, options: [live, pilot, in-development, coming-soon] }
+                  - { label: Summary, name: summary, widget: text }
+                  - { label: Link (optional), name: link, widget: string, required: false }

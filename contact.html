@@ -1,0 +1,69 @@
+---
+layout: page
+title: Contact
+permalink: /contact/
+eyebrow: Get in touch
+heading: Start a confidential conversation.
+intro: Tell us what you are working on. A partner — not a sales team — will respond within one business day.
+description: Contact RiskMantra Advisors — request a consultation, send an enquiry, or ask about training, initiatives and premium Knowledge access.
+hide_cta: true
+scripts: [/assets/js/contact.js]
+---
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <form class="form" id="enquiry-form" action="{{ site.form_endpoint }}" method="POST" data-email="{{ site.contact.email }}" novalidate>
+          <div class="field full">
+            <span id="type-label" style="display:block;font-size:.84rem;font-weight:600;color:var(--ink);margin-bottom:7px">I'd like to</span>
+            <div class="segmented" role="radiogroup" aria-labelledby="type-label">
+              <input type="radio" name="request_type" id="rt-consult" value="Consultation request" checked><label for="rt-consult">Request a consultation</label>
+              <input type="radio" name="request_type" id="rt-enquiry" value="General enquiry"><label for="rt-enquiry">Make an enquiry</label>
+              <input type="radio" name="request_type" id="rt-training" value="Training / Learning"><label for="rt-training">Ask about training</label>
+            </div>
+          </div>
+          <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input id="f-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="f-email">Work email <span class="req">*</span></label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="f-org">Organisation</label><input id="f-org" name="organisation" autocomplete="organization"></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-type">Institution type</label>
+            <select id="f-type" name="institution_type">
+              <option value="">Select…</option>
+              <option>Bank / Small Finance Bank</option><option>NBFC / HFC</option><option>Corporate / SME</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="f-topic">Area of interest</label>
+            <select id="f-topic" name="topic">
+              <option value="">Select…</option>
+              {% for s in site.data.services.items %}<option value="{{ s.id }}">{{ s.title }}</option>{% endfor %}
+              <option value="initiative">Initiatives &amp; products</option>
+              <option value="premium">Premium Knowledge access</option>
+              <option value="newsletter">Knowledge newsletter</option>
+              <option value="partnership">Partnership / collaboration</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field full"><label for="f-msg">How can we help? <span class="req">*</span></label><textarea id="f-msg" name="message" required></textarea></div>
+          <input type="hidden" name="partner" id="f-partner">
+          <input type="hidden" name="_subject" value="New enquiry — riskmantraadvisors.com">
+          <label class="hp" aria-hidden="true">Leave blank <input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          <div class="full" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+            <button class="btn btn--navy" type="submit">Send message {% include icon.html name="arrow" %}</button>
+            <span class="form-note">We treat every enquiry in confidence. See our <a href="{{ '/privacy/' | relative_url }}">privacy notice</a>.</span>
+          </div>
+          <div class="form-status" id="form-status" role="status"></div>
+        </form>
+      </div>
+      <aside class="contact-card on-dark">
+        <h3>RiskMantra Advisors LLP</h3>
+        <div class="contact-line">{% include icon.html name="mail" %}<div><small>Email</small><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a></div></div>
+        <div class="contact-line">{% include icon.html name="whatsapp" %}<div><small>WhatsApp</small><a href="https://wa.me/{{ site.contact.whatsapp }}" target="_blank" rel="noopener">Chat with us</a></div></div>
+        <div class="contact-line">{% include icon.html name="pin" %}<div><small>Office</small>{% for line in site.contact.address_lines %}{{ line }}{% unless forloop.last %}<br>{% endunless %}{% endfor %}</div></div>
+        <div class="contact-line">{% include icon.html name="clock" %}<div><small>Response time</small>Within one business day</div></div>
+      </aside>
+    </div>
+  </div>
+</section>
+<section style="line-height:0">
+  <iframe title="RiskMantra Advisors office location" src="https://maps.google.com/maps?q=Kanakia%20Paris%20Bandra%20Kurla%20Complex%20Mumbai&z=15&output=embed" width="100%" height="380" style="border:0;filter:grayscale(.4)" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>

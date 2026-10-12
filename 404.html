@@ -1,0 +1,19 @@
+---
+layout: default
+title: Page not found
+permalink: /404.html
+sitemap: false
+---
+<section class="hero" style="min-height:70vh;display:flex;align-items:center">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow eyebrow--light">Error 404</span>
+      <h1>This page has moved — <em>or never existed.</em></h1>
+      <p class="hero-lede">The link may be out of date. Try the welcome page, or explore our services and insights.</p>
+      <div class="hero-actions">
+        <a class="btn btn--gold" href="{{ '/' | relative_url }}">Back to the welcome page {% include icon.html name="arrow" %}</a>
+        <a class="btn btn--ghost-light" href="{{ '/knowledge/' | relative_url }}">Knowledge hub</a>
+      </div>
+    </div>
+  </div>
+</section>

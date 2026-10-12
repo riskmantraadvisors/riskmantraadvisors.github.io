@@ -1,0 +1,47 @@
+---
+layout: default
+---
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/people/' | relative_url }}">Our People</a></li>
+        <li aria-current="page">{{ page.name }}</li>
+      </ol>
+    </nav>
+    <span class="eyebrow eyebrow--light">{{ page.lens }}</span>
+    <h1>{{ page.name }}</h1>
+    <p class="lead">{{ page.title }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="profile">
+      <div class="profile-photo"><img src="{{ page.photo | relative_url }}" alt="{{ page.name }}" width="720" height="800"></div>
+      <div>
+        <div class="prose">{{ content }}</div>
+        <dl class="profile-facts">
+          <div><dt>Experience</dt><dd>{{ page.experience }}</dd></div>
+          <div><dt>Role</dt><dd>{{ page.role }}, RiskMantra Advisors</dd></div>
+          <div style="grid-column:1/-1"><dt>Expertise</dt><dd><ul class="chips">{% for e in page.expertise %}<li class="chip chip--gold">{{ e }}</li>{% endfor %}</ul></dd></div>
+          <div style="grid-column:1/-1"><dt>Institutional experience</dt><dd><ul class="chips">{% for i in page.institutions %}<li class="chip">{{ i }}</li>{% endfor %}</ul></dd></div>
+        </dl>
+        <div class="hero-actions">
+          <a class="btn btn--navy" href="{{ '/contact/' | relative_url }}?partner={{ page.slug }}">Speak with {{ page.name | split: " " | last }} {% include icon.html name="arrow" %}</a>
+          {% if page.linkedin != "" and page.linkedin %}<a class="btn btn--ghost" href="{{ page.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{%- assign mine = site.articles | where: "author", page.slug | sort: "date" | reverse -%}
+{% if mine.size > 0 %}
+<section class="section section--paper">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Insights</span><h2>Articles by {{ page.name }}</h2></div>
+    <div class="grid grid-3">{% for a in mine %}{% include article-card.html article=a %}{% endfor %}</div>
+  </div>
+</section>
+{% endif %}
+{% include cta-band.html %}

@@ -1,0 +1,98 @@
+---
+layout: default
+---
+{%- assign author = site.authors | where: "slug", page.author | first -%}
+{%- assign cat = site.data.categories | where: "slug", page.category | first -%}
+<section class="article-hero">
+  <div class="container container--narrow" style="max-width:var(--container)">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/knowledge/' | relative_url }}">Knowledge</a></li>
+        <li><a href="{{ '/knowledge/' | relative_url }}?category={{ page.category }}">{{ cat.name | default: page.category }}</a></li>
+        <li aria-current="page">Article</li>
+      </ol>
+    </nav>
+    <span class="eyebrow eyebrow--light">{{ cat.name | default: page.category }}{% if page.premium %} · Premium{% endif %}</span>
+    <h1 style="max-width:900px">{{ page.title }}</h1>
+    <p class="lead" style="max-width:760px">{{ page.summary }}</p>
+    <div class="article-meta">
+      {% if author %}
+      <span class="author">
+        {% if author.photo %}<img src="{{ author.photo | relative_url }}" alt="" width="44" height="44">{% endif %}
+        <span><a href="{{ author.url | relative_url }}">{{ author.name }}</a><br><small>{{ author.role }}, RiskMantra Advisors</small></span>
+      </span>
+      {% endif %}
+      <span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time></span>
+      <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="article-layout">
+    <div>
+      <article class="prose">
+        {%- if page.premium -%}
+          {%- assign parts = content | split: "<!--more-->" -%}
+          {{ parts[0] }}
+        {%- else -%}
+          {{ content }}
+        {%- endif -%}
+      </article>
+
+      {% if page.premium %}
+      <div class="paywall">
+        <div class="paywall-fade"></div>
+        <div class="paywall-box">
+          <div class="card-icon">{% include icon.html name="lock" %}</div>
+          <h3>Continue reading with RiskMantra Knowledge</h3>
+          <p>This is a premium briefing. Members get full access to in-depth notes, templates and practitioner analysis from our partners.</p>
+          <div class="paywall-actions">
+            <a class="btn btn--gold" href="{{ site.premium_checkout_url | relative_url }}">Become a member {% include icon.html name="arrow" %}</a>
+            <a class="btn btn--ghost" href="{{ '/contact/?topic=premium' | relative_url }}">Institutional access</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if page.tags.size > 0 %}
+      <div class="article-tags">
+        <ul class="chips">{% for t in page.tags %}<li><a class="chip" style="text-decoration:none" href="{{ '/knowledge/' | relative_url }}?q={{ t | url_encode }}">{{ t }}</a></li>{% endfor %}</ul>
+      </div>
+      {% endif %}
+    </div>
+
+    <aside class="article-aside">
+      <div class="aside-box">
+        {% if author %}
+        <h4>About the author</h4>
+        <div class="aside-author">
+          {% if author.photo %}<img src="{{ author.photo | relative_url }}" alt="{{ author.name }}" width="64" height="64">{% endif %}
+          <strong>{{ author.name }}</strong>
+          <p>{{ author.title }}</p>
+          <a class="link-arrow" href="{{ author.url | relative_url }}">Profile &amp; articles {% include icon.html name="arrow" %}</a>
+        </div>
+        {% endif %}
+        <div class="share-row">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on LinkedIn">{% include icon.html name="linkedin" %}</a>
+          <a href="mailto:?subject={{ page.title | url_encode }}&body={{ page.url | absolute_url | url_encode }}" aria-label="Share by email">{% include icon.html name="mail" %}</a>
+          <button type="button" data-copy-link aria-label="Copy link">{% include icon.html name="link" %}</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  {%- assign related = site.articles | where: "category", page.category | where_exp: "a", "a.url != page.url" | sort: "date" | reverse -%}
+  {%- if related.size == 0 -%}{%- assign related = site.articles | where_exp: "a", "a.url != page.url" | sort: "date" | reverse -%}{%- endif -%}
+  <section class="section--tight" style="border-top:1px solid var(--line)">
+    <div class="section-head--split section-head" style="margin-bottom:28px">
+      <div><span class="eyebrow">Keep reading</span><h2 style="font-size:1.9rem;margin:0">Related insights</h2></div>
+      <a class="link-arrow" href="{{ '/knowledge/' | relative_url }}">All insights {% include icon.html name="arrow" %}</a>
+    </div>
+    <div class="grid grid-3">
+      {% for a in related limit: 3 %}{% include article-card.html article=a %}{% endfor %}
+    </div>
+  </section>
+</div>
+{% include cta-band.html eyebrow="Discuss this topic" title="Want to apply this to your institution?" text="Speak directly with the partner who wrote it." %}

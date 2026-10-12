@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------
+# RiskMantra Advisors – site configuration
+# GitHub Pages builds this Jekyll site automatically on every push.
+# ---------------------------------------------------------------
+title: RiskMantra Advisors
+legal_name: RiskMantra Advisors LLP
+tagline: Strategic Risk Advisory for BFSI & Corporates
+description: >-
+  RiskMantra Advisors is a practitioner-led risk advisory firm for banks, NBFCs and corporates —
+  treasury, market risk, ALM & liquidity, credit risk, model validation and regulatory readiness.
+url: "https://riskmantraadvisors.com"
+baseurl: ""
+lang: en_IN
+logo: /assets/img/logo.png
+image: /assets/img/og-image.jpg
+
+contact:
+  email: contact@riskmantraadvisors.com
+  whatsapp: "919594773206"
+  address_lines:
+    - 1104, G Wing, Kanakia Paris, F Block
+    - Bandra Kurla Complex, Bandra East
+    - Mumbai – 400051, India
+
+# Enquiry form backend. Create a free form at https://formspree.io (or similar),
+# paste its endpoint here, e.g. "https://formspree.io/f/abcdwxyz".
+# Left blank, the form falls back to opening the visitor's email client.
+form_endpoint: ""
+
+# Analytics. Paste a Google Analytics 4 measurement ID (G-XXXXXXX) to enable tracking.
+google_analytics: ""
+
+# Premium content. Link to the checkout / membership page used for paid articles
+# (Razorpay payment page, Memberful, Ghost membership, etc.). See docs/TECHNICAL-RECOMMENDATION.md.
+premium_checkout_url: "/contact/?topic=premium"
+
+social:
+  name: RiskMantra Advisors LLP
+  links: []
+
+collections:
+  articles:
+    output: true
+    permalink: /knowledge/:slug/
+  authors:
+    output: true
+    permalink: /people/:slug/
+
+defaults:
+  - scope: { path: "", type: articles }
+    values: { layout: article }
+  - scope: { path: "", type: authors }
+    values: { layout: author }
+  - scope: { path: "" }
+    values: { layout: default }
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - docs/
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

@@ -1,0 +1,31 @@
+---
+layout: null
+sitemap: false
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>RiskMantra — Content Admin</title>
+  <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+</head>
+<body>
+  <!-- Decap CMS: Git-based admin. Sign in with a GitHub account that has write access to the repository.
+       Every publish / edit / delete becomes a commit, so there is a full audit trail and instant rollback. -->
+  <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+  <script>
+    CMS.registerPreviewStyle("{{ '/assets/css/main.css' | relative_url }}");
+    CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+    CMS.registerPreviewTemplate("articles", function (props) {
+      var e = props.entry, h = window.h;
+      return h('div', { style: { padding: '32px', maxWidth: '760px' } },
+        h('p', { className: 'eyebrow' }, (e.getIn(['data', 'category']) || '') + (e.getIn(['data', 'premium']) ? ' · Premium' : '')),
+        h('h1', { style: { fontSize: '2.4rem' } }, e.getIn(['data', 'title'])),
+        h('p', { className: 'lead' }, e.getIn(['data', 'summary'])),
+        h('div', { className: 'prose' }, props.widgetFor('body')));
+    });
+  </script>
+</body>
+</html>

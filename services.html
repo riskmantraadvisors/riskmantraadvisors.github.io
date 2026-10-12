@@ -1,0 +1,47 @@
+---
+layout: page
+title: Services
+permalink: /services/
+eyebrow: Our expertise
+heading: Risk and treasury advisory, from strategy to system.
+intro: Eight practice areas covering the full risk spectrum — each delivered personally by partners who have led these functions inside banks.
+description: RiskMantra services — market risk, ALM & liquidity, credit risk analytics, operational risk, model validation & valuations, treasury systems, corporate hedging and training.
+---
+<nav class="service-nav" aria-label="Service areas">
+  <div class="container">
+    <ul>{% for s in site.data.services.items %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}</ul>
+  </div>
+</nav>
+<section>
+  <div class="container">
+    {% for s in site.data.services.items %}
+    <div class="service-block reveal" id="{{ s.id }}">
+      <div>
+        <div class="card-icon">{% include icon.html name=s.icon %}</div>
+        <h2>{{ s.title }}</h2>
+        <p>{{ s.summary }}</p>
+        <a class="link-arrow" href="{{ '/contact/' | relative_url }}?service={{ s.id }}">Discuss this with a partner {% include icon.html name="arrow" %}</a>
+      </div>
+      <div class="service-groups">
+        {% for g in s.groups %}
+        <div class="service-group">
+          <h4>{{ g.name }}</h4>
+          <ul>{% for i in g.items %}<li>{{ i }}</li>{% endfor %}</ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<section class="section section--paper">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">How we engage</span><h2>A phased model, from diagnostic to retainer</h2></div>
+    <div class="steps reveal">
+      <div class="step"><span class="step-num">01</span><h3>Diagnostic</h3><span class="step-sub">Initial deep dive</span><p>Health check of current risk posture and gap identification to set the project baseline.</p></div>
+      <div class="step"><span class="step-num">02</span><h3>Blueprint</h3><span class="step-sub">Strategic roadmap</span><p>Policy drafting and system-selection guidance for long-term scalability and efficiency.</p></div>
+      <div class="step"><span class="step-num">03</span><h3>Execution</h3><span class="step-sub">Implementation</span><p>System UAT, comprehensive training and go-live support to minimise operational friction.</p></div>
+      <div class="step"><span class="step-num">04</span><h3>Retainer</h3><span class="step-sub">Ongoing advisory</span><p>Monthly ALCO support, quarterly reviews and continuous improvement of risk maturity.</p></div>
+    </div>
+  </div>
+</section>

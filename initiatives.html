@@ -1,0 +1,45 @@
+---
+layout: page
+title: Initiatives
+permalink: /initiatives/
+eyebrow: Beyond advisory
+heading: Building the next generation of risk intelligence.
+intro: Alongside our advisory practice, RiskMantra is building RegTech tools, learning platforms and research that extend our partners' judgement to more institutions — faster.
+description: RiskMantra initiatives — RiskMantra Intelligence (RBEWS, ARIP, S.I.G.N.A.L.), RiskMantra Learning and Research & Innovation, including the Risk Model Validation Tool.
+---
+{%- assign status_label = "live:Available,pilot:In pilot,in-development:In development,coming-soon:Coming soon" | split: "," -%}
+<nav class="service-nav" aria-label="Initiative platforms">
+  <div class="container">
+    <ul>{% for pl in site.data.initiatives.items %}<li><a href="#{{ pl.id }}">{{ pl.name }}</a></li>{% endfor %}</ul>
+  </div>
+</nav>
+<section>
+  <div class="container">
+    {% for pl in site.data.initiatives.items %}
+    <div class="platform" id="{{ pl.id }}">
+      <div class="reveal">
+        <span class="platform-kicker">{{ pl.kicker }}</span>
+        <h2>{{ pl.name }}</h2>
+        <p>{{ pl.summary }}</p>
+      </div>
+      <div class="product-grid">
+        {% for pr in pl.products %}
+        {%- assign label = pr.status -%}
+        {%- for s in status_label -%}{%- assign kv = s | split: ":" -%}{%- if kv[0] == pr.status -%}{%- assign label = kv[1] -%}{%- endif -%}{%- endfor -%}
+        <article class="product reveal">
+          <span class="status status--{{ pr.status }}">{{ label }}</span>
+          {% if pr.short and pr.short != pr.name %}<span class="product-short">{{ pr.short }}</span>{% endif %}
+          <h3>{{ pr.name }}</h3>
+          <p>{{ pr.summary }}</p>
+          {% if pr.link %}
+          <a class="link-arrow stretched" href="{{ pr.link | relative_url }}">Learn more {% include icon.html name="arrow" %}</a>
+          {% else %}
+          <a class="link-arrow stretched" href="{{ '/contact/' | relative_url }}?topic=initiative&amp;product={{ pr.name | url_encode }}">Request early access {% include icon.html name="arrow" %}</a>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,12 @@
+{%- comment -%} Builds "Home / Section / Page" from the page URL. Pass `crumbs` in front matter to override. {%- endcomment -%}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ '/' | relative_url }}"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+    {%- assign pos = 2 -%}
+    {%- for crumb in page.crumbs %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="{{ crumb.url | relative_url }}"><span itemprop="name">{{ crumb.title }}</span></a><meta itemprop="position" content="{{ pos }}"></li>
+    {%- assign pos = pos | plus: 1 -%}
+    {%- endfor %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page"><span itemprop="name">{{ page.crumb_title | default: page.title }}</span><meta itemprop="position" content="{{ pos }}"></li>
+  </ol>
+</nav>

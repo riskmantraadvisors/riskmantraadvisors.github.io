@@ -1,0 +1,17 @@
+{%- assign a = include.article -%}
+{%- assign author = site.authors | where: "slug", a.author | first -%}
+{%- assign cat = site.data.categories | where: "slug", a.category | first -%}
+<article class="article-card{% if include.featured %} article-card--featured{% endif %}"
+  data-category="{{ a.category }}" data-author="{{ a.author }}"
+  data-search="{{ a.title | append: ' ' | append: a.summary | append: ' ' | append: author.name | append: ' ' | append: cat.name | append: ' ' | append: a.tags | join: ' ' | downcase | strip_newlines | escape }}">
+  <div class="ac-top">
+    <span class="ac-cat">{{ cat.name | default: a.category }}</span>
+    {% if a.premium %}<span class="badge-premium">{% include icon.html name="lock" %} Premium</span>{% endif %}
+  </div>
+  <h3><a class="stretched" href="{{ a.url | relative_url }}">{{ a.title }}</a></h3>
+  <p>{{ a.summary }}</p>
+  <div class="ac-byline">
+    {% if author.photo %}<img src="{{ author.photo | relative_url }}" alt="" loading="lazy" width="36" height="36">{% endif %}
+    <span><strong>{{ author.name | default: a.author }}</strong><time datetime="{{ a.date | date_to_xmlschema }}">{{ a.date | date: "%-d %B %Y" }}</time> · {{ a.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+  </div>
+</article>
