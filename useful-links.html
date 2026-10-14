@@ -1,0 +1,59 @@
+---
+layout: page
+title: Useful Links
+permalink: /useful-links/
+eyebrow: Useful links
+heading: Regulatory websites for banks and financial institutions in India.
+intro: A reference directory for banking, treasury, risk management and financial-sector compliance — the official sites our team relies on every day.
+description: A directory of official regulatory and financial-sector websites in India — RBI, SEBI, IFSCA, government ministries, CCIL, FBIL, FIMMDA, FEDAI, IBA and more — for banking, treasury and risk professionals.
+---
+{%- assign sections = site.data.useful_links -%}
+<section class="section" style="padding-top:clamp(40px,5vw,64px)">
+  <div class="container">
+    <nav class="ul-toc" aria-label="On this page">
+      {%- for s in sections %}
+      <a href="#{{ s.id }}"><span class="ul-num">{{ forloop.index }}</span>{{ s.title }}</a>
+      {%- endfor %}
+    </nav>
+
+    {%- for s in sections %}
+    <div class="ul-section reveal" id="{{ s.id }}">
+      <div class="ul-head">
+        <span class="ul-num ul-num--lg">{{ forloop.index }}</span>
+        <div>
+          <h2>{{ s.title }}</h2>
+          {% if s.intro %}<p class="muted">{{ s.intro }}</p>{% endif %}
+        </div>
+      </div>
+
+      {%- if s.links %}
+      <div class="ul-table-wrap">
+        <table class="ul-table">
+          <thead><tr><th scope="col">Organisation</th><th scope="col">{{ s.column }}</th><th scope="col">Official website</th></tr></thead>
+          <tbody>
+            {%- for l in s.links %}
+            <tr>
+              <th scope="row" data-label="Organisation">{{ l.name }}</th>
+              <td data-label="{{ s.column }}">{{ l.about }}</td>
+              <td data-label="Official website">
+                <a class="ul-link" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.url | remove: 'https://' | remove: 'www.' | append: '|' | remove: '/|' | remove: '|' }} {% include icon.html name="arrow" %}</a>
+                {%- for e in l.extra %}
+                <a class="ul-link ul-link--sub" href="{{ e.url }}" target="_blank" rel="noopener">{{ e.label }} {% include icon.html name="arrow" %}</a>
+                {%- endfor %}
+              </td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </div>
+      {%- endif %}
+
+    </div>
+    {%- endfor %}
+
+    <aside class="ul-note reveal" role="note">
+      <strong>Important note</strong>
+      <p>This directory is a practical starting point, not an exhaustive list of every authority or self-regulatory organisation. For regulatory research, use the regulator's original notification, circular or master direction and verify the effective date, amendments and applicability to the institution concerned. Website addresses and organisational responsibilities can change; confirm details on official government or regulator pages.</p>
+    </aside>
+  </div>
+</section>

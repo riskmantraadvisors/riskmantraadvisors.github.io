@@ -1,0 +1,60 @@
+# Useful links directory (rendered on /useful-links/).
+# Each section has a table of organisations; add or edit entries here.
+- id: regulators
+  title: Primary financial regulators
+  intro: These are the principal regulatory authorities for India's banking, securities and IFSC sectors.
+  column: Main area of responsibility
+  links:
+    - name: Reserve Bank of India (RBI)
+      about: Banks, NBFCs, monetary policy, payments, forex, banking supervision, ALM and prudential regulation
+      url: https://www.rbi.org.in/
+      extra:
+        - label: Notifications and circulars
+          url: https://www.rbi.org.in/Scripts/NotificationUser.aspx
+    - name: Securities and Exchange Board of India (SEBI)
+      about: Securities markets, exchanges, mutual funds, brokers, PMS, AIFs and investment advisers
+      url: https://www.sebi.gov.in/
+    - name: International Financial Services Centres Authority (IFSCA)
+      about: Financial services within India's IFSCs, including GIFT City
+      url: https://ifsca.gov.in/
+
+- id: government
+  title: Government ministries and financial-sector departments
+  column: Relevance
+  links:
+    - name: Ministry of Finance
+      about: Central government financial-sector policy and administration
+      url: https://finmin.gov.in/
+    - name: Department of Financial Services (DFS)
+      about: Banking-sector policy, public-sector banks, public insurers and financial institutions
+      url: https://financialservices.gov.in/
+    - name: Department of Economic Affairs (DEA)
+      about: Economic policy, financial markets and related matters
+      url: https://dea.gov.in/
+    - name: Ministry of Corporate Affairs (MCA)
+      about: Company and LLP law, corporate filings and governance
+      url: https://www.mca.gov.in/
+    - name: Ministry of Electronics and Information Technology (MeitY)
+      about: Digital governance, IT and related policy
+      url: https://www.meity.gov.in/
+
+- id: market-infrastructure
+  title: Financial-market infrastructure and industry institutions
+  intro: Not all of these bodies are regulators; they are included because they are important to banking operations, treasury, settlements and market practices.
+  column: Relevance
+  links:
+    - name: Foreign Exchange Dealers' Association of India (FEDAI)
+      about: Framing of rules governing the conduct of inter-bank foreign exchange business among banks vis-à-vis the public, and liaison with RBI for reforms and development of the forex market
+      url: https://www.fedai.org.in/
+    - name: Clearing Corporation of India Ltd. (CCIL)
+      about: Clearing and settlement of government securities, forex and money-market transactions
+      url: https://www.ccilindia.com/
+    - name: Financial Benchmarks India Pvt. Ltd. (FBIL)
+      about: Financial benchmarks and reference rates
+      url: https://www.fbil.org.in/
+    - name: FIMMDA
+      about: Market conventions, valuation guidance and fixed-income/derivatives practices
+      url: https://www.fimmda.org/
+    - name: Indian Banks' Association (IBA)
+      about: Banking-industry coordination, guidance and representation
+      url: https://www.iba.org.in/
