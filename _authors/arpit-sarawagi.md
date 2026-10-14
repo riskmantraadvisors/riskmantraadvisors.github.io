@@ -5,7 +5,7 @@ order: 2
 role: Partner
 lens: The Specialist · Set-up, Valuation & Compliance Lens
 title: Former Head of Market Risk & Model Validation
-photo: /assets/img/team/arpit-sarawagi.jpg
+photo: /assets/img/team/arpit-sarawagi-v3.webp
 experience: 20+ years
 expertise: [Market Risk, Counterparty Credit Risk, ALM, Valuation, Model Validation, Desk Set-up, Calypso · Murex · FM Converge]
 institutions: [IndusInd Bank, IDFC FIRST Bank, UBS, DBS, Barclays, ICICI Bank]

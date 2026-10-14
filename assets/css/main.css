@@ -314,6 +314,19 @@ ul { padding-left: 1.2em; }
 .service-nav ul::-webkit-scrollbar { display: none; }
 .service-nav a { display: block; padding: 16px 14px; font-size: .86rem; font-weight: 500; color: var(--body); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; }
 .service-nav a:hover { color: var(--navy-900); border-color: var(--gold); }
+/* Scrolling strip of service names (services page) */
+.marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.marquee-track { display: flex; width: max-content; animation: marquee 45s linear infinite; }
+.marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
+.marquee .marquee-track ul { overflow: visible; flex-shrink: 0; padding-right: 4px; }
+.marquee li { display: flex; align-items: center; }
+.marquee li::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); margin: 0 10px; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { animation: none; }
+  .marquee-track ul[aria-hidden] { display: none; }
+}
 .service-block { display: grid; grid-template-columns: 340px 1fr; gap: clamp(28px, 5vw, 72px); padding: clamp(48px, 6vw, 72px) 0; border-bottom: 1px solid var(--line); }
 .service-block:last-child { border-bottom: 0; }
 .service-block h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }

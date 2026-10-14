@@ -8,8 +8,12 @@ intro: Eight practice areas covering the full risk spectrum — each delivered p
 description: RiskMantra services — market risk, ALM & liquidity, credit risk analytics, operational risk, model validation & valuations, treasury systems, corporate hedging and training.
 ---
 <nav class="service-nav" aria-label="Service areas">
-  <div class="container">
-    <ul>{% for s in site.data.services.items %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}</ul>
+  <div class="marquee">
+    <div class="marquee-track">
+      <ul>{% for s in site.data.services.items %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}</ul>
+      {%- comment -%} Second copy makes the scrolling loop seamless; hidden from screen readers and keyboard. {%- endcomment %}
+      <ul aria-hidden="true">{% for s in site.data.services.items %}<li><a href="#{{ s.id }}" tabindex="-1">{{ s.title }}</a></li>{% endfor %}</ul>
+    </div>
   </div>
 </nav>
 <section>

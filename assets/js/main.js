@@ -37,6 +37,17 @@
     els.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  // Back to top: scroll the window itself (the sticky header can't serve as a scroll target)
+  document.querySelectorAll('a[href="#top"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      var skip = document.querySelector('.brand');
+      if (skip) skip.focus({ preventScroll: true });
+    });
+  });
+
   // Copy-link buttons
   document.querySelectorAll('[data-copy-link]').forEach(function (btn) {
     btn.addEventListener('click', function () {

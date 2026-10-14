@@ -5,7 +5,7 @@ order: 3
 role: Partner
 lens: The Architect · Analytical & Institutional Lens
 title: Former Head of Treasury Operations, Market Risk & Liquidity Risk · Regional Director, PRMIA
-photo: /assets/img/team/sushant-saurav.jpg
+photo: /assets/img/team/sushant-saurav-v2.jpg
 experience: 25+ years
 expertise: [ALM, IRRBB, Liquidity Risk, VaR / ES, Treasury Operations]
 institutions: [State Bank of India, IndusInd Bank, PRMIA]

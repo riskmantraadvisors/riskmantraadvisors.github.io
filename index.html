@@ -101,24 +101,6 @@ body_class: home
   </div>
 </section>
 
-<!-- People -->
-<section class="section section--paper">
-  <div class="container">
-    <div class="section-head section-head--split reveal">
-      <div>
-        <span class="eyebrow">Leadership</span>
-        <h2>The full ecosystem — strategist, specialist, architect</h2>
-        <p class="lead mb-0">Three partners who have run desks, approved trades, faced regulatory audits and managed crises across public, private, foreign and small finance banks.</p>
-      </div>
-      <a class="btn btn--ghost" href="{{ '/people/' | relative_url }}">Meet our people {% include icon.html name="arrow" %}</a>
-    </div>
-    <div class="grid grid-3">
-      {% assign people = site.authors | sort: "order" %}
-      {% for p in people %}{% include person-card.html person=p %}{% endfor %}
-    </div>
-  </div>
-</section>
-
 <!-- Initiatives -->
 <section class="section on-dark" style="background:var(--navy-900)">
   <div class="container">
@@ -140,23 +122,6 @@ body_class: home
         <span class="link-arrow">Explore {% include icon.html name="arrow" %}</span>
       </div>
       {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- Knowledge -->
-<section class="section">
-  <div class="container">
-    <div class="section-head section-head--split reveal">
-      <div>
-        <span class="eyebrow">Knowledge</span>
-        <h2>Latest insights from our partners</h2>
-      </div>
-      <a class="btn btn--ghost" href="{{ '/knowledge/' | relative_url }}">Visit the Knowledge hub {% include icon.html name="arrow" %}</a>
-    </div>
-    <div class="grid grid-3">
-      {% assign latest = site.articles | sort: "date" | reverse %}
-      {% for a in latest limit: 3 %}{% include article-card.html article=a %}{% endfor %}
     </div>
   </div>
 </section>
