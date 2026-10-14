@@ -28,7 +28,7 @@ contact:
 form_endpoint: "https://formspree.io/f/mrpeykqy"
 
 # Analytics. Paste a Google Analytics 4 measurement ID (G-XXXXXXX) to enable tracking.
-google_analytics: ""
+google_analytics: "G-RHEPMNYGT6"
 
 # Premium content. Link to the checkout / membership page used for paid articles
 # (Razorpay payment page, Memberful, Ghost membership, etc.). See docs/TECHNICAL-RECOMMENDATION.md.

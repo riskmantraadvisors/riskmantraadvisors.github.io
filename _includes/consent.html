@@ -1,0 +1,39 @@
+{%- if site.google_analytics != "" -%}
+<div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+  <p>We use analytics cookies to understand how visitors use this site and improve it. No advertising cookies. You can change your choice at any time via <em>Cookie settings</em> in the footer. <a href="{{ '/privacy/' | relative_url }}#cookies">Learn more</a></p>
+  <div class="consent-actions">
+    <button type="button" class="btn btn--ghost-light btn--sm" data-consent="denied">Decline</button>
+    <button type="button" class="btn btn--gold btn--sm" data-consent="granted">Accept</button>
+  </div>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('consent');
+  var get = function () { try { return localStorage.getItem('rm-consent'); } catch (e) { return null; } };
+  var set = function (v) { try { localStorage.setItem('rm-consent', v); } catch (e) {} };
+  if (!get()) box.hidden = false;
+  box.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-consent]');
+    if (!b) return;
+    var v = b.getAttribute('data-consent');
+    set(v);
+    box.hidden = true;
+    if (v === 'granted' && window.rmLoadAnalytics) window.rmLoadAnalytics();
+    // Withdrawing consent: stop tracking and clear GA cookies.
+    if (v === 'denied' && window.rmAnalyticsLoaded) {
+      if (window.gtag) gtag('consent', 'update', { analytics_storage: 'denied' });
+      document.cookie.split(';').forEach(function (c) {
+        var n = c.split('=')[0].trim();
+        if (n.indexOf('_ga') === 0) {
+          document.cookie = n + '=; Max-Age=0; path=/; domain=.' + location.hostname.replace(/^www\./, '');
+          document.cookie = n + '=; Max-Age=0; path=/';
+        }
+      });
+    }
+  });
+  document.querySelectorAll('[data-cookie-settings]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); box.hidden = false; box.querySelector('[data-consent="granted"]').focus(); });
+  });
+})();
+</script>
+{%- endif -%}
