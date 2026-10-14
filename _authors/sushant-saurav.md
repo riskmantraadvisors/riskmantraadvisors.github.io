@@ -9,7 +9,7 @@ photo: /assets/img/team/sushant-saurav-v2.jpg
 experience: 25+ years
 expertise: [ALM, IRRBB, Liquidity Risk, VaR / ES, Treasury Operations]
 institutions: [State Bank of India, IndusInd Bank, PRMIA]
-linkedin: ""
+linkedin: "https://www.linkedin.com/in/sushant-saurav-4975711a/"
 summary: >-
   A risk leader who has designed institution-wide frameworks and advised senior management and Board
   committees on balance-sheet and market risk.
