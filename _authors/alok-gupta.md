@@ -9,7 +9,7 @@ photo: /assets/img/team/alok-gupta.jpg
 experience: 25+ years
 expertise: [Enterprise Risk, CRO Advisory, ICAAP, Basel III, ECL]
 institutions: [AU SFB, Equitas SFB, IndusInd Bank, Kotak, ICICI]
-linkedin: ""
+linkedin: "https://www.linkedin.com/in/alok-gupta-frm-141a01a/"
 summary: >-
   Built and scaled risk functions as CRO of two Small Finance Banks and headed the independent risk
   function at a large private-sector bank.
