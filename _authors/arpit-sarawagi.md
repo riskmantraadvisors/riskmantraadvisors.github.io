@@ -9,7 +9,7 @@ photo: /assets/img/team/arpit-sarawagi-v3.webp
 experience: 20+ years
 expertise: [Market Risk, Counterparty Credit Risk, ALM, Valuation, Model Validation, Desk Set-up, Calypso · Murex · FM Converge]
 institutions: [IndusInd Bank, IDFC FIRST Bank, UBS, DBS, Barclays, ICICI Bank]
-linkedin: ""
+linkedin: "https://www.linkedin.com/in/arpitsarawagi/"
 summary: >-
   Two decades in market and treasury risk across leading global and Indian banks, with hands-on
   experience setting up treasury systems.
